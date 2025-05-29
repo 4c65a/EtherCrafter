@@ -54,7 +54,6 @@ pub struct TCP {
     pub data: Vec<u8>,
 }
 
-
 /// Implementation of methods for the TCP header, including a constructor (`new`),
 /// getters (field reading) and setters (fluent field modification).
 impl TCP {
@@ -145,18 +144,18 @@ impl TCP {
     }
 
     /// Returns the options (optional header field).
-    pub fn get_options(&mut self) -> Vec<u8> {
-        self.options.clone()
+    pub fn get_options(&self) -> &Vec<u8> {
+        &self.options
     }
 
     /// Returns the padding.
-    pub fn get_padding(&mut self) -> Vec<u8> {
-        self.padding.clone()
+    pub fn get_padding(&self) -> &Vec<u8> {
+        &self.padding
     }
 
     /// Returns the data carried by the TCP packet.
-    pub fn get_data(&mut self) -> Vec<u8> {
-        self.data.clone()
+    pub fn get_data(&self) -> &Vec<u8> {
+        &self.data
     }
 
     // --- SETTER METHODS ---
@@ -239,6 +238,3 @@ impl TCP {
         self
     }
 }
-
-
-
